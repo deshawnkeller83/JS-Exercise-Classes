@@ -40,9 +40,25 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
-
-}
+class Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+    console.log(this);
+  }
+  /*Person.prototype.eat = function(someFood) {
+    if (this.stomach.length === 10) {
+      return null;
+    }
+    this.stomach.push(someFood);
+  }
+  Person.prototype.poop = function() {
+    this.stomach = [];
+  }
+  Person.prototype.toString = function() {
+    return `${this.name}, ${this.age}`;
+  }
+  */
 
 /*
   TASK 2
@@ -59,7 +75,22 @@ class Person {
 */
 
 class Car {
+constructor(model, milesPerGallon){
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+ }
+ fill(gallons){
+  this.tank += gallons;
+ }
+ drive(distance) {
+  if (this.odometer = this.odometer + distance;
+  this.tank = this.tank - distance / this.milesPerGallon;
 
+  (this.tank = 0){
+    return `I ran out of fuel at ${this.odometer} miles!`}
+  }
 }
 
 /*
@@ -75,11 +106,18 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+constructor(object){
+  this.name = object.name,
+  this.age = object.age,
+  this.location = object.location
+};
+  speak(){
+  return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
 
-/*
-  TASK 4
+
+ /*TASK 4
     - Write an Instructor class extending Lambdasian.
     - Its constructor takes a single argument - an object with the following keys:
         + All the keys used to initialize instances of Lambdasian.
@@ -92,10 +130,20 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
-}
-
+class Instructor extends Lambdasian{
+    constructor(object){
+    super(object)
+      this.specialy = object.specialty,
+      this.favLanguage = object.favLanguage,
+      this.catchPhrase = object.catchPhrase
+     }
+     demo(subject){
+       return `Today we are learning about ${this.demo}`;
+     }
+    grade(student, subject){
+       return `${this.name} receives a perfect score on ${this.grade}`;    
+      }
+    }
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
@@ -111,9 +159,25 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian{
+    constructor(object){
+    super(object)
+      this.listSubject = object.listSubject,
+      this.praAssignment = object.praAssignment,
+      this.sprintChallenge = object.sprintChallenge; 
+    }     
+    listSubjects(favSubjects){
+      return `This ${this.name} loves ${this.listSubjects}`;
+       }
+    praAssignment(subject){
+      return `{This ${this.name} has submitted a PR for ${this.listSubject}}`;
+    }
+    sprintChallenge(){
+      return `${this.name} has begun sprint challenge on ${this.listSubjects}`;
+    }
 }
+  
+  
 
 /*
   TASK 6
